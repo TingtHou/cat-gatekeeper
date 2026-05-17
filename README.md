@@ -3,7 +3,7 @@
 > A menubar app for macOS. When you've been working too long, my cat **Louisa**
 > appears on your screen and refuses to leave until you pet her.
 
-Inspired by [ZOKUZOKU's original Cat Gatekeeper Chrome extension](https://chromewebstore.google.com/detail/cat-gatekeeper/dgkcoindljmldhblkdgicflohhhakkfm),
+Inspired by [ZOKUZOKU's original Cat Gatekeeper Chrome extension](https://zokuzoku.github.io/cat-gatekeeper),
 this is a system-wide macOS version — the cat overlays everything, not just
 your browser.
 
@@ -170,7 +170,7 @@ visible across macOS Spaces. Settings live in
 
 ## Credits
 
-- 🐈 Original concept: [Cat Gatekeeper by ZOKUZOKU](https://chromewebstore.google.com/detail/cat-gatekeeper/dgkcoindljmldhblkdgicflohhhakkfm)
+- 🐈 Original concept: [Cat Gatekeeper by ZOKUZOKU](https://zokuzoku.github.io/cat-gatekeeper/)
 - 🛠 Built with [Electron](https://www.electronjs.org/) and [electron-builder](https://www.electron.build/)
 - 🖼 Background removal with [transparent-background](https://github.com/plemeri/transparent-background) (BiRefNet)
 - 🐈 The real Louisa — for being so photogenic
