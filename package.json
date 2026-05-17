@@ -1,0 +1,48 @@
+{
+  "name": "cat-gatekeeper",
+  "version": "0.1.0",
+  "description": "Your cat takes over the screen when you've been working too long",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "DEBUG_MODE=1 electron .",
+    "dist": "electron-builder --mac dir",
+    "dmg": "electron-builder --mac dmg"
+  },
+  "devDependencies": {
+    "electron": "^42.1.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.tingting.catgatekeeper",
+    "productName": "Cat Gatekeeper",
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.lifestyle",
+      "icon": "build/icon.icns",
+      "target": [
+        {
+          "target": "default",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ]
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "assets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    }
+  },
+  "license": "MIT"
+}

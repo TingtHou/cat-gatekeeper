@@ -1,0 +1,69 @@
+/* Cat Gatekeeper styles — pet-to-dismiss edition */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  overflow: hidden;
+  /* DEBUG: uncomment if you can't tell whether the window is showing */
+  /* background: rgba(255, 0, 0, 0.15) !important; */
+}
+
+#cat-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;        /* clicks outside the cat fall through */
+}
+
+#cat-container.hidden  { opacity: 0; }
+#cat-container.visible { opacity: 1; }
+
+#cat {
+  height: 80vh;                /* big presence — adjust 30vh–80vh to taste */
+  max-width:90vw;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;        /* cat catches clicks */
+  cursor: pointer;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.35));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter    0.3s ease-out,
+              opacity   0.6s ease-in-out;
+}
+
+/* When the sequence has finished, cat is ready to be petted */
+#cat.pettable {
+  animation: invite 2s ease-in-out infinite;
+}
+@keyframes invite {
+  /* Subtle "pet me" head bob */
+  0%, 100% { transform: translateY(0)    scale(1); }
+  50%      { transform: translateY(-6px) scale(1.01); }
+}
+
+/* Hover state — visual affordance that it's clickable */
+#cat.pettable:hover {
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.45)) brightness(1.05);
+  animation: none;
+  transform: scale(1.03);
+}
+
+/* Pet click reaction — quick bounce + fade out */
+#cat.petted {
+  animation: petBounce 0.7s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes petBounce {
+  0%   { transform: scale(1);     opacity: 1; }
+  20%  { transform: scale(1.10);  opacity: 1; }   /* squish from pet */
+  40%  { transform: scale(0.96);  opacity: 1; }
+  100% { transform: scale(1)
+                  translateY(20px); opacity: 0; } /* happy puff into the void */
+}
